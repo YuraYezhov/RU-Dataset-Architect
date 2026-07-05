@@ -83,8 +83,35 @@ class HandwritingExtractor:
         return max(0, retval - 1)
 
     def get_horizontal_peaks(self):
-        """Определяет количество вертикальных штрихов через горизонтальную проекцию."""
-        pass
+        """
+        Определяет количество вертикальных штрихов через горизонтальную проекцию.
+        Каждый пик соответствует вертикальному штриху буквы. 
+        Количество пиков сильно коррелирует с количеством букв в слове.
+
+        Returns:
+            int: Количество найденных значимых пиков.
+        """
+        _, binary = cv2.threshold(self.image, 127, 255, cv2.THRESH_BINARY_INV)
+
+        # Вычисление суммы пикселей по вертикальным столбцам (горизонтальная проекция)
+        projection = np.sum(binary, axis=0) // 255
+        
+        # Пороговое значение для фильтрации шума и определения значимого штриха
+        threshold = 2 
+        peaks = 0
+        in_peak = False
+
+        # Поиск количества сегментов, превышающих порог (подсчет пиков)
+        for value in projection:
+            if value > threshold and not in_peak:
+                # Начало нового пика
+                peaks += 1
+                in_peak = True
+            elif value <= threshold and in_peak:
+                # Завершение текущего пика
+                in_peak = False
+
+        return peaks
 
     def get_solidity(self):
         """
@@ -103,11 +130,16 @@ class HandwritingExtractor:
 
         if coords is not None:
             ink_area = cv2.countNonZero(binary)
+            # Построение выпуклой оболочки вокруг найденных пикселей
             hull = cv2.convexHull(coords)
+            
+            # Вычисление площади полученной выпуклой оболочки
             hull_area = cv2.contourArea(hull)
-
+            
+            # Расчет отношения площади чернил к площади оболочки
             if hull_area > 0:
                 return round(ink_area / hull_area, 4)
+            
         return 0
 
     def extract_all(self):
@@ -117,8 +149,8 @@ class HandwritingExtractor:
         features = {
             "aspect_ratio": self.get_aspect_ratio(),
             "ink_density": self.get_ink_density(),
-            "connected_components": self.count_connected_components(),
-            "horizontal_peaks": self.get_horizontal_peaks(),
+            "components": self.count_connected_components(),
+            "peaks": self.get_horizontal_peaks(),
             "solidity": self.get_solidity()
         }
         return features

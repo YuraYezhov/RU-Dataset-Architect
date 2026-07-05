@@ -4,8 +4,13 @@ from handwriting_features import HandwritingExtractor
 
 COLUMNS = ["file_name", "aspect_ratio", "ink_density", "components", "peaks", "solidity", "target_letters"]
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+LABELS_PATH = BASE_DIR / "data" / "labels.csv"
+IMAGES_DIR  = BASE_DIR / "images"
+OUTPUT_PATH = BASE_DIR / "data" / "handwriting_minimal_dataset.csv"
+
 def main():
-    df_raw = pd.read_csv("../data/labels.csv")
+    df_raw = pd.read_csv(LABELS_PATH)
     label_map = {}
     
     for _, row in df_raw.iterrows():
@@ -13,10 +18,9 @@ def main():
         word = str(row['Actual word']).strip()
         label_map[filename] = len(word)
 
-    path_to_images = Path("../images")
     all_data = []
 
-    for img_path in path_to_images.glob("*.png"):
+    for img_path in IMAGES_DIR.glob("*.png"):
         if img_path.name in label_map:
             try:
                 extractor = HandwritingExtractor(img_path)
@@ -38,8 +42,8 @@ def main():
     
     if all_data:
         df = pd.DataFrame(all_data, columns=COLUMNS)
-        df.to_csv("hangwriting_minimal_dataset.csv", index=False)
-        print("Датасет готов! Сохранено строк:", len(df))
+        df.to_csv(OUTPUT_PATH, index=False)
+        print(f"Датасет готов! Сохранен: {OUTPUT_PATH}, всего строк: {len(df)}")
     else:
         print("PNG файлы не найдены или произошла ошибка при обработке.")
 
