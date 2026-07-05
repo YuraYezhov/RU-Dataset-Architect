@@ -64,16 +64,51 @@ class HandwritingExtractor:
         return 0
 
     def count_connected_components(self):
-        """Подсчитывает количество связных фрагментов в слове."""
-        pass
+        """
+        Подсчитывает количество связных компонентов.
+        В рукописном тексте это могут быть отдельные буквы, знаки препинания
+        или не соединенные между собой штрихи.
+
+        Returns:
+            int: Количество найденных компонентов (чернильных фрагментов).
+        """
+        _, binary = cv2.threshold(self.image, 127, 255, cv2.THRESH_BINARY_INV)
+
+        # Поиск связных компонентов
+        # retval — это целое число (количество найденных областей)
+        # _ — это матрица того же размера, что и фото, где каждый пиксель 
+        # имеет номер своей области (нам она здесь не нужна)
+        retval, _ = cv2.connectedComponents(binary)
+
+        return max(0, retval - 1)
 
     def get_horizontal_peaks(self):
         """Определяет количество вертикальных штрихов через горизонтальную проекцию."""
         pass
 
     def get_solidity(self):
-        """Вычисляет отношение площади контура к площади его выпуклой оболочки."""
-        pass
+        """
+        Вычисляет плотность заполнения слова.
+        Определяется как отношение площади чернильных пикселей к площади 
+        выпуклой оболочки (Convex Hull), охватывающей всё слово.
+        
+        Помогает отличить компактные слова от слов с выступающими 
+        элементами (хвостами букв 'у', 'д', 'б').
+
+        Returns:
+            float: Коэффициент плотности (от 0 до 1), округленный до 4 знаков.
+        """
+        _, binary = cv2.threshold(self.image, 127, 255, cv2.THRESH_BINARY_INV)
+        coords = cv2.findNonZero(binary)
+
+        if coords is not None:
+            ink_area = cv2.countNonZero(binary)
+            hull = cv2.convexHull(coords)
+            hull_area = cv2.contourArea(hull)
+
+            if hull_area > 0:
+                return round(ink_area / hull_area, 4)
+        return 0
 
     def extract_all(self):
         """
