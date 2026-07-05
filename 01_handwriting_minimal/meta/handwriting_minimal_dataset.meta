@@ -1,0 +1,53 @@
+name = handwriting_minimal_dataset
+title.ru = Минимальный датасет метрик рукописного текста
+title.en = Minimal handwriting metrics dataset
+
+task = regression
+family = HandwritingMetrics
+variant = minimal
+
+rows = 100
+columns = 7
+version = 1.0
+
+features = file_name, aspect_ratio, ink_density, components, peaks, solidity
+target = target_letters
+
+description.ru = Метрики рукописного текста для оценки длины слова. Данные получены путем анализа контуров и проекций изображений через OpenCV.
+description.en = Handwriting metrics for word length estimation. Data extracted via OpenCV contour and projection analysis.
+
+source = Kaggle: Russian Cursive Handwriting
+url = https://www.kaggle.com/datasets/mhantor/russian-cursive-handwriting
+license = educational
+synthetic = no
+
+missing = no
+missing_values = NA
+
+feature.file_name = string
+feature.file_name.ru = Имя файла изображения
+feature.file_name.en = Image file name
+
+feature.aspect_ratio = float
+feature.aspect_ratio.ru = Отношение ширины к высоте рамки слова (ширина/высота)
+feature.aspect_ratio.en = Word bounding box aspect ratio (width/height)
+
+feature.ink_density = float
+feature.ink_density.ru = Плотность чернил относительно площади рамки
+feature.ink_density.en = Ink density relative to bounding box area
+
+feature.components = int
+feature.components.ru = Количество отдельных фрагментов (связных компонентов)
+feature.components.en = Number of connected components (individual ink fragments)
+
+feature.peaks = int
+feature.peaks.ru = Количество вертикальных штрихов (пиков проекции)
+feature.peaks.en = Number of vertical strokes (projection peaks)
+
+feature.solidity = float
+feature.solidity.ru = Коэффициент выпуклости или заполненности формы
+feature.solidity.en = Solidity or convexity coefficient
+
+feature.target_letters = int
+feature.target_letters.ru = Фактическое количество букв в слове
+feature.target_letters.en = Actual number of letters in the word
