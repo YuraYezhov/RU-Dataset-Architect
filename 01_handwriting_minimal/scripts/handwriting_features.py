@@ -4,13 +4,27 @@ from pathlib import Path
 
 class HandwritingExtractor:
     def __init__(self, image_path):
-        """Загружает изображение и инициализирует базовые параметры."""
+        """
+        Инициализирует объект класса для анализа рукописного текста.
+        Загружает изображение в оттенках серого и проверяет его валидность.
+
+        Args:
+            image_path (Path/str): Полный путь к файлу изображения.
+
+        Raises:
+            ValueError: Если файл не удалось прочитать (неверный путь или поврежденный файл).
+        """
+        # Чтение изображения в оттенках серого
         self.image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+        
+        # Сохранение имени файла для идентификации
         self.filename = Path(image_path).name
         
+        # Проверка корректности загрузки файла
         if self.image is None:
             raise ValueError(f"Не удалось загрузить изображение: {image_path}")
-    
+
+
     def get_aspect_ratio(self):
         """
         Вычисляет соотношение ширины к высоте слова.
@@ -43,7 +57,6 @@ class HandwritingExtractor:
         
         Returns:
             float: Плотность (от 0 до 1), округленная до 4 знаков.
-        
         """
         _, binary = cv2.threshold(self.image, 127, 255, cv2.THRESH_BINARY_INV)
         coords = cv2.findNonZero(binary)
@@ -144,8 +157,14 @@ class HandwritingExtractor:
 
     def extract_all(self):
         """
-        Запускает все методы извлечения признаков и возвращает результат в виде словаря.
+        Запускает комплексный анализ изображения всеми доступными методами
+        и агрегирует в единый словарь.
+
+        Returns:
+            dict: Набор вычисленных признаков (aspect_ratio, ink_density, 
+                  components, peaks, solidity).
         """
+        # Формирование словаря с извлеченными признаками
         features = {
             "aspect_ratio": self.get_aspect_ratio(),
             "ink_density": self.get_ink_density(),

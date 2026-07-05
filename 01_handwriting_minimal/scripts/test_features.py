@@ -1,6 +1,5 @@
 import cv2
 from pathlib import Path
-import sys
 from handwriting_features import HandwritingExtractor
 
 BASE_DIR = Path(__file__).resolve().parent.parent 
