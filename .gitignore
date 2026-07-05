@@ -1,3 +1,6 @@
+# Игнорировать тестовый скрипт в корне
+/Test.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
