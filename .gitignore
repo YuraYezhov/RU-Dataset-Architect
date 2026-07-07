@@ -5,6 +5,13 @@
 *.ini
 Thumbs.db
 
+# Игнорировать папку с файлами для реализации парсинга и промежуточными JSON файлами
+02_domes_medium/parsing
+02_domes_medium/data/intermediate_data/images.zip
+
+# Игнорировать папку с сырыми изображаениями
+02_domes_medium/images
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
