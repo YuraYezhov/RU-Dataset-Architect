@@ -8,6 +8,7 @@ Thumbs.db
 # Игнорировать папку с файлами для реализации парсинга и промежуточными JSON файлами
 02_domes_medium/parsing
 02_domes_medium/data/intermediate_data/images.zip
+02_domes_medium/data/intermediate_data/cropped_domes.zip
 
 # Игнорировать папку с сырыми изображаениями
 02_domes_medium/images
