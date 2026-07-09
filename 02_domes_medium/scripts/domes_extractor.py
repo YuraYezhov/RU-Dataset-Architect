@@ -1,7 +1,6 @@
 import cv2
-import sys
-import os
 import numpy as np
+import math
 from pathlib import Path
 
 class DomesExtractor:
@@ -189,11 +188,39 @@ class DomesExtractor:
         
         return 0
 
-    def get_hu_moment(self):
+    def get_hu_moment_1(self):
         """
-        Первый инвариантный момент Ху. 
+        Вычисляет первый инвариантный момент Ху с логарифмическим масштабированием.
+
+        Логика работы:
+        1. Рассчитывает центральные моменты контура.
+        2. Извлекает первый инвариантный момент Ху.
+        3. Применяет логарифмическое масштабирование: -1 * sign(h1) * log10(abs(h1)).
+        Это необходимо, так как сырые значения моментов обычно очень малы (например, 10^-6), 
+        а логарифм приводит их к удобному для анализа виду (например, в диапазон 1-10).
+
+        Returns:
+            float: Масштабированное значение первого момента Ху, округленное до 4 знаков.
+                Возвращает 0, если контур не задан или значение момента равно нулю.
         """
-        pass
+        if self.contour is None:
+            return 0
+        
+        # Считаем простые моменты
+        M = cv2.moments(self.contour)
+        
+        # Считаем моменты Ху
+        hu_moments = cv2.HuMoments(M)
+
+        # Берем первый момент
+        h1 = hu_moments[0][0]
+        
+        # Логарифмическое масштабирование значения момента для улучшения читаемости
+        if h1 != 0:
+            h1 = -1.0 * math.copysign(1.0, h1) * math.log10(abs(h1))
+            return round(h1, 4)
+        
+        return 0
     
     def extract_all(self):
         """
@@ -208,6 +235,6 @@ class DomesExtractor:
             "solidity": self.get_solidity(),
             "extent": self.get_extent(),
             "top_width_ratio": self.get_top_width_ratio(),
-            "hu_moment_1": self.get_hu_moment()
+            "hu_moment_1": self.get_hu_moment_1()
         }
         return features
