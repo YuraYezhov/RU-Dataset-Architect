@@ -18,7 +18,8 @@ class DomesExtractor:
         """
         # Чтение изображения в оттенках серого
         self.image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
-        
+        self.gray = self.image
+
         # Сохранение имени файла для идентификации
         self.filename = Path(image_path).name
         
@@ -26,7 +27,6 @@ class DomesExtractor:
         if self.image is None:
             raise ValueError(f"Не удалось загрузить изображение: {image_path}")
 
-        self.gray = self.image
         self.contour = self._get_main_contour()
 
     def _get_main_contour(self):
@@ -66,6 +66,7 @@ class DomesExtractor:
             approx = cv2.approxPolyDP(hull, epsilon, True)
             
             return approx
+        
         return None
 
     def get_aspect_ratio(self):
@@ -87,11 +88,11 @@ class DomesExtractor:
 
         if h > 0:
             return round(w / h, 2)
+        
         return 0
 
     def get_solidity(self):
         """
-        Вычисляет плотность ().
         Вычисляет плотность (solidity) контура.
 
         Плотность — это отношение площади контура (Area) к площади его выпуклой оболочки (Convex Hull).
@@ -113,20 +114,81 @@ class DomesExtractor:
 
         if hull_area > 0:
             return round(area / hull_area, 2)
+        
         return 0
 
     def get_extent(self):
         """
-        Вычисляет заполненность (Area / BoundingRectArea).
+        Вычисляет заполненность (extent).
+
+        Заполненность — это отношение площади контура (Area) к площади его ограничивающего 
+        прямоугольника (Bounding Box). Позволяет оценить, насколько объект 
+        близок по форме к прямоугольнику.
+
+        Returns:
+            float: Значение заполненности (Area / BoundingRectArea), 
+                округленное до 2 знаков. Возвращает 0, если контур не задан 
+                или площадь прямоугольника равна нулю.
         """
-        pass
+        if self.contour is None:
+            return 0
+        
+        area = cv2.contourArea(self.contour)
+
+        # Вычисление площади ограничивающего прямоугольника
+        x, y, w, h = cv2.boundingRect(self.contour)
+        rect_area = w * h
+
+        if rect_area > 0:
+            return round(area / rect_area, 2)
+        
+        return 0
 
     def get_top_width_ratio(self):
         """
-        Показывает, насколько 'острая' у купола вершина.
+        Вычисляет коэффициент ширины вершины (Top Width Ratio).
+
+        Показывает, насколько "острой" или "плоской" является верхушка купола. 
+        Коэффициент определяется как отношение ширины купола на уровне 10% от 
+        его верхней точки к его полной ширине.
+
+        Логика работы:
+        1. Определяет ограничивающий прямоугольник.
+        2. Выбирает горизонтальную линию на уровне 10% высоты вниз от вершины.
+        3. Создает временную маску и измеряет ширину контура в пикселях на этой линии.
+        4. Нормирует полученную ширину, деля её на полную ширину (w) прямоугольника.
+
+        Returns:
+            float: Коэффициент "остроты" вершины (от 0 до 1), округленный до 2 знаков.
+                Возвращает 0, если контур не задан или на данном уровне объект не обнаружен.
         """
-        pass
-    
+        if self.contour is None:
+            return 0
+
+        _, y, w, h = cv2.boundingRect(self.contour)
+        
+        # Определяем "уровень" (10% от верхушки вниз)
+        target_y = y + int(h * 0.1)
+        
+        #  Создаем черную маску размером с картинку
+        mask = np.zeros(self.gray.shape, dtype=np.uint8)
+
+        # Рисуем на маске купол белым цветом и заполненным (-1)
+        cv2.drawContours(mask, [self.contour], -1, 255, -1)
+
+        # Берем срез маски по строке target_y
+        y_row = mask[target_y, :]
+
+        # Находим индексы всех белых пикселей (255) в этой строке
+        white_pixels = np.where(y_row == 255)[0]
+
+        if len(white_pixels) > 0:
+            # Вычисляем ширину контура как разницу между крайними точками
+            top_width = np.max(white_pixels) - np.min(white_pixels)
+            return round(top_width / w, 2)
+        
+        return 0
+
     def get_hu_moment(self):
         """
         Первый инвариантный момент Ху. 

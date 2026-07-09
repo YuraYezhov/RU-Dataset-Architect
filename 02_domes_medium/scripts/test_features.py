@@ -19,8 +19,7 @@ def display_img(ext):
     толщиной 3 пикселя и ожидает нажатия любой клавиши для закрытия окна.
 
     Args:
-        ext (object): Объект (экземпляр класса), который должен содержать 
-                      атрибуты:
+        ext (object): Объект (экземпляр класса), который должен содержать атрибуты:
                       - ext.image: Исходное изображение (numpy array).
                       - ext.contour: Контур объекта (может быть None).
     """
@@ -42,9 +41,11 @@ for file_name in test_files:
     img_path = BASE_DIR / "cropped_domes" / file_name
     try:
         ext = DomesExtractor(str(img_path))
-        print(f"Файл: {img_path.name}")
+        print(f"\nФайл: {img_path.name}")
         print(f"Отношение высоты к ширине: {ext.get_aspect_ratio()}")
-        print(f"Отношение выпуклости: {ext.get_solidity()}")
+        print(f"Коэффициент выпуклости: {ext.get_solidity()}")
+        print(f"Коэффициент заполнености: {ext.get_extent()}")
+        print(f"Коэффициент остроты вершины: {ext.get_top_width_ratio()}")
         display_img(ext)
 
     except Exception as e:
