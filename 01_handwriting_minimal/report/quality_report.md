@@ -6,9 +6,9 @@
 
 ## Типы признаков
 Признаки распределены следующим образом:
-- числовые (float): aspect_ratio, ink_density, solidity
-- числовые (int): components, peaks, target_letters (target)
-- строковые: file_name (технический идентификатор)
+- числовые (float): `aspect_ratio`, `ink_density`, `solidity`
+- числовые (int): `components`, `peaks`, `target_letters`
+- строковые: `file_name` (технический идентификатор)
 
 ## Пропуски
 В наборе данных пропуски отсутствуют. Все поля заполнены на 100%, что обусловлено автоматизированным способом извлечения признаков.

@@ -1,0 +1,57 @@
+name = domes_medium_dataset
+title.ru = Метрики геометрии куполов архитектурных объектов Золотого кольца
+title.en = Geometry metrics of domes of the Golden Ring architectural objects
+
+task = classification
+family = ArchitectureGeometry
+variant = medium
+
+rows = 861
+columns = 8
+version = 1.0
+
+features = file_name, aspect_ratio, solidity, extent, top_width_ratio, hu_moment_1, century
+target = target_shape
+
+description.ru = Геометрические дескрипторы форм куполов, извлеченные с помощью OpenCV. Базовая версия (Raw) включает 861 запись с пропусками и шумом, очищенная версия (Easy) включает 560 записей.
+description.en = Geometric descriptors of dome shapes extracted via OpenCV. The base version (Raw) includes 861 records with gaps and noise, the cleaned version (Easy) includes 560 records.
+
+source = sobory.ru (Народный каталог православной архитектуры)
+url = https://sobory.ru/
+license = educational
+synthetic = no
+
+missing = yes
+missing_values = NA
+
+feature.file_name = string
+feature.file_name.ru = Имя файла изображения
+feature.file_name.en = Image file name
+
+feature.aspect_ratio = float
+feature.aspect_ratio.ru = Отношение ширины к высоте контура купола
+feature.aspect_ratio.en = Dome contour width-to-height ratio
+
+feature.solidity = float
+feature.solidity.ru = Коэффициент выпуклости (отношение площади контура к площади его выпуклой оболочки)
+feature.solidity.en = Solidity (ratio of the contour area to the area of the circumscribing rectangle)
+
+feature.extent = float
+feature.extent.ru = Коэффициент заполнения (отношение площади контура к площади описывающего прямоугольника)
+feature.extent.en = Extent (the ratio of the contour area to the area of the circumscribing rectangle)
+
+feature.top_width_ratio = float
+feature.top_width_ratio.ru = Отношение ширины вершины к максимальной ширине
+feature.top_width_ratio.en = The ratio of the vertex width to the maximum width
+
+feature.hu_moment_1 = float
+feature.hu_moment_1.ru = Первый инвариантный момент Ху (распределение массы формы)
+feature.hu_moment_1.en = 1st Hu invariant moment (shape mass distribution)
+
+feature.century = int
+feature.century.ru = Век постройки (определен по дате основания)
+feature.century.en = Century of construction (determined by the date of foundation)
+
+feature.target_shape = string
+feature.target_shape.ru = Категория формы купола (onion, helmet, tent)
+feature.target_shape.en = Target dome shape category (onion, helmet, tent)
