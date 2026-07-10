@@ -102,7 +102,7 @@
     {
         "id": "16725",
         "century": 21,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/16720/16725_20110223_111839.jpg",
             "https://sobory.ru/pic/16700/16725_20221109_0811190.jpg",
@@ -122,7 +122,7 @@
     {
         "id": "50389",
         "century": 21,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/50350/50389_20250620_1250430.jpg",
             "https://sobory.ru/pic/50350/50389_20210803_0017401.jpg",
@@ -152,7 +152,7 @@
     {
         "id": "28367",
         "century": 21,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/28350/28367_20210518_1740510.jpg",
             "https://sobory.ru/pic/28350/28367_20211018_2228520.jpg",
@@ -242,7 +242,7 @@
     {
         "id": "04583",
         "century": 21,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/04550/04583_20160410_094029.jpg",
             "https://sobory.ru/pic/04550/04583_20210518_1815210.jpg",
@@ -252,7 +252,7 @@
     {
         "id": "00151",
         "century": 15,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/00150/00151_20190706_212656.jpg",
             "https://sobory.ru/pic/00150/00151_20130926_012303.jpg",
@@ -302,7 +302,7 @@
     {
         "id": "05165",
         "century": 19,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/05150/05165_20211007_1255402.jpg",
             "https://sobory.ru/pic/05150/05165_20240901_1528480.jpg",
@@ -462,7 +462,7 @@
     {
         "id": "27615",
         "century": 21,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/27600/27615_20251026_2105234.jpg",
             "https://sobory.ru/pic/27600/27615_20150428_161208.jpg",
@@ -482,7 +482,7 @@
     {
         "id": "00648",
         "century": 17,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/00600/00648_20200429_223629.jpg",
             "https://sobory.ru/pic/00600/00648_20200121_204652.jpg",
@@ -512,7 +512,7 @@
     {
         "id": "35254",
         "century": 18,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/35250/35254_20150714_231953.jpg",
             "https://sobory.ru/pic/35250/35254_20160524_133848.jpg",
@@ -602,7 +602,7 @@
     {
         "id": "00388",
         "century": 17,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/00350/00388_20120906_211005.jpg",
             "https://sobory.ru/pic/00350/00388_20221031_0100390.jpg",
@@ -612,7 +612,7 @@
     {
         "id": "35291",
         "century": 18,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/35250/35291_20191216_200452.jpg",
             "https://sobory.ru/pic/35250/35291_20260331_0059200.jpg",
@@ -662,7 +662,7 @@
     {
         "id": "03052",
         "century": 17,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/03050/03052_20240906_0923310.jpg",
             "https://sobory.ru/pic/03050/03052_20240906_0923410.jpg",
@@ -702,7 +702,7 @@
     {
         "id": "00434",
         "century": 16,
-        "target_shape": "hent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/00400/00434_20110505_211037.jpg",
             "https://sobory.ru/pic/00400/00434_20150323_004850.jpg",
@@ -1542,7 +1542,7 @@
     {
         "id": "05919",
         "century": 18,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/05900/05919_20211106_1207147.jpg",
             "https://sobory.ru/pic/05900/05919_20240420_1322091.jpg",
@@ -1562,7 +1562,7 @@
     {
         "id": "05098",
         "century": 16,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/05050/05098_20210425_1833440.jpg",
             "https://sobory.ru/pic/05050/05098_20200529_200638.jpg",
@@ -1572,7 +1572,7 @@
     {
         "id": "05097",
         "century": 16,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/05050/05097_20110523_122215.jpg",
             "https://sobory.ru/pic/05050/05097_20111226_204810.jpg",
@@ -1602,7 +1602,7 @@
     {
         "id": "09679",
         "century": 19,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/09650/09679_20110526_084333.jpg",
             "https://sobory.ru/pic/09650/09679_20260218_0934380.jpg",
@@ -1612,7 +1612,7 @@
     {
         "id": "00930",
         "century": 17,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/00900/00930_20240421_2256252.jpg",
             "https://sobory.ru/pic/00900/00930_20240421_2256230.jpg",
@@ -1632,7 +1632,7 @@
     {
         "id": "03193",
         "century": 17,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/03150/03193_20260407_2131150.jpg",
             "https://sobory.ru/pic/03150/03193_20120120_015253.jpg",
@@ -1662,7 +1662,7 @@
     {
         "id": "05870",
         "century": 18,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/05850/05870_20240224_2119450.jpg",
             "https://sobory.ru/pic/05850/05870_20211106_1243014.jpg",
@@ -1712,7 +1712,7 @@
     {
         "id": "01860",
         "century": 16,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/01850/01860_20241107_1538435.jpg",
             "https://sobory.ru/pic/01850/01860_20080119_181907.jpg",
@@ -1722,7 +1722,7 @@
     {
         "id": "00938",
         "century": null,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/00900/00938_1.jpg",
             "https://sobory.ru/pic/00900/00938_20231117_2120220.jpg",
@@ -1752,7 +1752,7 @@
     {
         "id": "32471",
         "century": 17,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/32450/32471_20210425_1613030.jpg",
             "https://sobory.ru/pic/32450/32471_20110518_095059.jpg",
@@ -1792,7 +1792,7 @@
     {
         "id": "06931",
         "century": 18,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/06900/06931_20210426_0658470.jpg",
             "https://sobory.ru/pic/06900/06931_20110722_111554.jpg",
@@ -1802,7 +1802,7 @@
     {
         "id": "02356",
         "century": 18,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/02350/02356_20120121_002558.jpg",
             "https://sobory.ru/pic/02350/02356_20260105_2104362.jpg",
@@ -1822,7 +1822,7 @@
     {
         "id": "14595",
         "century": 19,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/14550/14595_20190330_163037.jpg",
             "https://sobory.ru/pic/14580/14595_20100710_010936.jpg",
@@ -1862,7 +1862,7 @@
     {
         "id": "02355",
         "century": 19,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/02300/02355_20060422_125053.jpg",
             "https://sobory.ru/pic/02350/02355_20130607_224903.jpg",
@@ -1872,7 +1872,7 @@
     {
         "id": "00924",
         "century": 18,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/00900/00924_20211106_1816547.jpg",
             "https://sobory.ru/pic/00900/00924_20240726_1133080.jpg",
@@ -2522,7 +2522,7 @@
     {
         "id": "00211",
         "century": 17,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/00200/00211_20260509_0712410.jpg",
             "https://sobory.ru/pic/00200/00211_20241031_1214390.jpg",
@@ -2732,7 +2732,7 @@
     {
         "id": "38075",
         "century": 17,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/38050/38075_20200126_205433.jpg",
             "https://sobory.ru/pic/38050/38075_20250727_0654140.jpg",
@@ -2772,7 +2772,7 @@
     {
         "id": "00584",
         "century": 17,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/00550/00584_20090703_163726.jpg",
             "https://sobory.ru/pic/00550/00584_20150825_015613.jpg",
@@ -2822,7 +2822,7 @@
     {
         "id": "00585",
         "century": 18,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/00550/00585_20140312_175240.jpg",
             "https://sobory.ru/pic/00550/00585_20150218_000334.jpg",
@@ -2832,7 +2832,7 @@
     {
         "id": "09635",
         "century": 18,
-        "target_shape": "Tent",
+        "target_shape": "tent",
         "photos": [
             "https://sobory.ru/pic/09600/09635_20210908_1629262.jpg",
             "https://sobory.ru/pic/09600/09635_20251114_1511191.jpg",
@@ -2862,7 +2862,7 @@
     {
         "id": "29300",
         "century": 21,
-        "target_shape": "Helmet",
+        "target_shape": "helmet",
         "photos": [
             "https://sobory.ru/pic/29300/29300_20151104_221531.jpg",
             "https://sobory.ru/pic/29300/29300_20260509_1218463.jpg",
