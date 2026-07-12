@@ -7,7 +7,7 @@ begin
   // Загрузка локального датасета
   var df := DataFrame.FromCsv('../data/culture_large_dataset_easy.csv');
   
-  // СОЗДАЕМ МАССИВ НАЗВАНИЙ ВРУЧНУЮ Создаем массив названий
+  // Создаем массив названий
   // 0 - ART, 1 - DOCUMENTS, 2 - ICON, 3 - NUMISMATICS
   var myNames := ['ART', 'DOCUMENTS', 'ICON', 'NUMISMATICS'];
   

@@ -6,7 +6,7 @@ task = classification
 family = ArchitectureGeometry
 variant = medium
 
-rows = 861
+rows = 560
 columns = 8
 version = 1.0
 

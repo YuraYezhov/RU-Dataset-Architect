@@ -13,7 +13,9 @@
 * `meta/domes_medium_dataset.meta` — технический паспорт датасета.
 * `samples/01_load_dataset.pas` — пример загрузки и вывода данных в PascalABC.NET.
 * `samples/02_describe_dataset.pas` — пример вывода схемы данных и первичного анализа.
-* `samples/03_baseline_model.pas` — пример построения простейшей модели линейной регрессии.
+* `samples/03_RandomForestClassifier_model.pas` — пример построения модели классификации Random Forest. 
+* `samples/03_KNNClassifier_model.pas` — пример построения модели классификации KNN Classifier.
+* `eda_analysis.ipynb` — файл с полным аналитическим циклом: исследованием всех версий датасета ( raw, easy), визуализацией процесса предобработки (преобразование из raw в easy) и обучением моделей машинного обучения.
 
 ## Задачи машинного обучения
 Классификация: определение формы купола (target_shape).
