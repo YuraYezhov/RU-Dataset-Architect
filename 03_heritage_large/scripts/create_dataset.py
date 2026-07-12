@@ -1,17 +1,12 @@
 import pandas as pd
 from pathlib import Path
+from keywords_dict_v2 import KEYWORDS_DICT
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 INPUT_PATH = BASE_DIR / "data" / "data-15-structure-3.csv"
 OUTPUT_PATH = BASE_DIR / "data" / "culture_large_dataset_raw.csv"
 
-# Словарь ключевых слов для определения категорий предметов
-KEYWORDS_DICT = {
-    'is_painting_hint': ['холст', 'масло', 'акварель', 'пейзаж', 'портрет', 'рама'],
-    'is_icon_hint': ['дерево', 'доска', 'темпера', 'левкас', 'сусальн', 'святой', 'богородиц', 'спас', 'ковчег'],
-    'is_coin_hint': ['монета', 'рубль', 'копейка', 'серебр', 'медь', 'золот', 'чекан', 'аверс', 'реверс'],
-    'is_doc_hint': ['приказ', 'акт', 'дело', 'письмо', 'папка', 'протокол', 'рукопись', 'машинопись']
-}
+# Словарь ключевых слов для определения категорий предметов - KEYWORDS_DICT from keywords_dict
 
 # Словарь переименования столбцов
 COLUMN_MAPPING = {
