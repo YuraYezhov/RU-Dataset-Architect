@@ -1,0 +1,61 @@
+name = lost_heritage_large_dataset
+title.ru = Большой датасет утраченных культурных ценностей РФ
+title.en = Large dataset of lost cultural heritage of the Russian Federation
+
+task = classification
+family = LostHeritage
+variant = large
+
+rows = 7550
+columns = 9
+version = 1.0
+
+features = height, width, length, weight, is_painting_hint, is_icon_hint, is_coin_hint, is_doc_hint
+target = target_label
+
+description.ru = Классификация типов утраченных предметов искусства и документов на основе физических габаритов и текстовых маркеров (хинтов), извлеченных из описаний.
+description.en = Classification of lost cultural assets based on physical dimensions and text-based markers (hints) extracted from descriptions.
+
+source = Open Data Ministry of Culture of the Russian Federation
+url = https://opendata.mkrf.ru/opendata/7705851331-heritage_lost_objects
+license = Open Data of Russia
+synthetic = no
+
+missing = no
+missing_values = NA
+
+feature.height = float
+feature.height.ru = Высота объекта в сантиметрах
+feature.height.en = Object height in centimeters
+
+feature.width = float
+feature.width.ru = Ширина объекта в сантиметрах
+feature.width.en = Object width in centimeters
+
+feature.length = float
+feature.length.ru = Длина объекта в сантиметрах
+feature.length.en = Object length in centimeters
+
+feature.weight = float
+feature.weight.ru = Вес объекта в граммах
+feature.weight.en = Object weight in grams
+
+feature.is_painting_hint = int
+feature.is_painting_hint.ru = Наличие ключевых слов, характерных для живописи (0/1)
+feature.is_painting_hint.en = Presence of keywords typical for painting (0/1)
+
+feature.is_icon_hint = int
+feature.is_icon_hint.ru = Наличие ключевых слов, характерных для иконописи (0/1)
+feature.is_icon_hint.en = Presence of keywords typical for icon painting (0/1)
+
+feature.is_coin_hint = int
+feature.is_coin_hint.ru = Наличие ключевых слов, характерных для нумизматики (0/1)
+feature.is_coin_hint.en = Presence of keywords typical for numismatics (0/1)
+
+feature.is_doc_hint = int
+feature.is_doc_hint.ru = Наличие ключевых слов, характерных для архивных документов (0/1)
+feature.is_doc_hint.en = Presence of keywords typical for archival documents (0/1)
+
+target.target_label = int
+target.target_label.ru = Код категории (0: ART, 1: DOCUMENTS, 2: ICON, 3: NUMISMATICS)
+target.target_label.en = Category label (0: ART, 1: DOCUMENTS, 2: ICON, 3: NUMISMATICS)
