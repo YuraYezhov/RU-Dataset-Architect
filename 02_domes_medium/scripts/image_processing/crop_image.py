@@ -2,7 +2,7 @@ import cv2
 from pathlib import Path
 
 # Настройка путей к директориям проекта
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SOURCE_DIR = BASE_DIR / "images"
 SAVE_DIR = BASE_DIR / "cropped_domes" 
 
