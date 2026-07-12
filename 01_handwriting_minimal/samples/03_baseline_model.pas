@@ -19,7 +19,7 @@ begin
   // seed := 42 нужен, чтобы разделение было всегда одинаковым при перезапуске
   var (X_train, X_test, y_train, y_test) := Validation.TrainTestSplit(X, y, testRatio := 0.2, seed := 42);
   
-  // Создание и обучение модели - линейная регрессия
+  // Создание и обучение модели LinearRegression
   var model := new LinearRegression();
   model.Fit(X_train, y_train);
   
